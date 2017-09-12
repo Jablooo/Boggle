@@ -1,6 +1,9 @@
 class BoggleBoard
   def initialize
-    @board = ["____","____","____","____"]
+    @firstRow = "____"
+    @secondRow = "____"
+    @thirdRow = "____"
+    @lastRow = "____"
   end
 
   # def shake!
@@ -8,7 +11,10 @@ class BoggleBoard
 
   def to_s
     puts "omg what is this? try printing me."
-    puts @board
+    puts @firstRow
+    puts @secondRow
+    puts @thirdRow
+    puts @lastRow
   end
 end
 
