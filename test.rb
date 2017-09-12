@@ -8,4 +8,5 @@ chars = ("A".."Z").to_a
 @firstRow.each do |i|
   i.gsub! "_", chars.sample
 end
+
 puts @firstRow.join
