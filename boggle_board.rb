@@ -1,14 +1,10 @@
 class Dice
-  def initialize(side1, side2, side3, side4, side5, side6)
+  def initialize(side1)
     @side1 = side1
-    @side2 = side2
-    @side3 = side3
-    @side4 = side4
-    @side5 = side5
-    @side6 = side6
+    @range = "1..6"
   end
 
-  attr_accessor :side1, :side2, :side3, :side4, :side5, :side6
+  attr_accessor :side1
 
   def randomSide
     sides = [@side1, @side2, @side3, @side4, @side5, @side6]
@@ -21,22 +17,24 @@ class Dice
   end
 end
 
-dice1 = Dice.new("A","A","E","E","G","N")
-dice2 = Dice.new("E","L","R","T","T","Y")
-dice3 = Dice.new("A","O","O","T","T","W")
-dice4 = Dice.new("A","B","B","J","O","O")
-dice5 = Dice.new("E","H","R","T","V","W")
-dice6 = Dice.new("C","I","M","O","T","U")
-dice7 = Dice.new("D","I","S","T","T","Y")
-dice8 = Dice.new("E","I","O","S","S","T")
-dice9 = Dice.new("D","E","L","R","V","Y")
-dice10 = Dice.new("A","C","H","O","P","S")
-dice11 = Dice.new("H","I","M","N","Q","U")
-dice12 = Dice.new("E","E","I","N","S","U")
-dice13 = Dice.new("E","E","G","H","N","W")
-dice14 = Dice.new("A","F","F","K","P","S")
-dice15 = Dice.new("H","L","N","N","R","Z")
-dice16 = Dice.new("D","E","I","L","R","X")
+dice1 = Dice.new("AAEEGN")
+dice2 = Dice.new("ELRTTY")
+dice3 = Dice.new("AOOTTW")
+dice4 = Dice.new("ABBJOO")
+dice5 = Dice.new("EHRTVW")
+dice6 = Dice.new("CIMOTU")
+dice7 = Dice.new("DISTTY")
+dice8 = Dice.new("EIOSST")
+dice9 = Dice.new("DELRVY")
+dice10 = Dice.new("ACHOPS")
+dice11 = Dice.new("HIMNQU")
+dice12 = Dice.new("EEINSU")
+dice13 = Dice.new("EEGHNW")
+dice14 = Dice.new("AFFKPS")
+dice15 = Dice.new("HLNNRZ")
+dice16 = Dice.new("DEILRX")
+
+
 
 class BoggleBoard
   def initialize
@@ -74,5 +72,4 @@ end
 
 board = BoggleBoard.new
 
-puts dice2.randomSide
-puts dice2.randomSide
+puts dice1.randomSide

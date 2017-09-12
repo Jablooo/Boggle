@@ -74,5 +74,17 @@ end
 
 board = BoggleBoard.new
 
-puts dice2.randomSide
-puts dice2.randomSide
+@alldice = []
+Dice.all.each do |i|
+  push = i.randomSide
+  @alldice << push
+end
+
+output_board = String.new
+letters_random = @alldice.shuffle
+
+4.times do
+  output_board << letters_random.shift(4).join('') +"\n"
+end
+
+puts output_board
