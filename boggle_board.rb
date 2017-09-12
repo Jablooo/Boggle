@@ -1,9 +1,9 @@
 class BoggleBoard
-  def initialize(row)
-    @row = row
+  def initialize(board)
+    @board = board
   end
 
-  attr_accessor :row
+  attr_accessor :board
 
   # def shake!
   # end
@@ -15,6 +15,6 @@ class BoggleBoard
   # end
 end
 
-board = BoggleBoard.new(["_","_","_","_"])
+board = BoggleBoard.new(["____","____","____","____"])
 
-puts board.row
+puts board.board
