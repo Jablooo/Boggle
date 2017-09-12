@@ -31,7 +31,6 @@ class BoggleBoard
   end
 
   def to_s
-    puts "omg what is this? try printing me."
     puts @firstRow.join
     puts @secondRow.join
     puts @thirdRow.join
@@ -39,15 +38,7 @@ class BoggleBoard
   end
 end
 
-class Dice
-  def initialize(name)
-    @name = name
-    @side = ["","","","","",""]
-  end
-
-
-end
-
 board = BoggleBoard.new
+
 board.to_s
 print board.shake!
