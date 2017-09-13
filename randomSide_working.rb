@@ -21,41 +21,66 @@ class Dice
   end
 end
 
-dice1 = Dice.new("A","A","E","E","G","N")
-dice2 = Dice.new("E","L","R","T","T","Y")
-dice3 = Dice.new("A","O","O","T","T","W")
-dice4 = Dice.new("A","B","B","J","O","O")
-dice5 = Dice.new("E","H","R","T","V","W")
-dice6 = Dice.new("C","I","M","O","T","U")
-dice7 = Dice.new("D","I","S","T","T","Y")
-dice8 = Dice.new("E","I","O","S","S","T")
-dice9 = Dice.new("D","E","L","R","V","Y")
-dice10 = Dice.new("A","C","H","O","P","S")
-dice11 = Dice.new("H","I","M","N","Q","U")
-dice12 = Dice.new("E","E","I","N","S","U")
-dice13 = Dice.new("E","E","G","H","N","W")
-dice14 = Dice.new("A","F","F","K","P","S")
-dice15 = Dice.new("H","L","N","N","R","Z")
-dice16 = Dice.new("D","E","I","L","R","X")
+# Shuffle Test
+# dice1 = Dice.new("A","A","A","A","A","A")
+# dice2 = Dice.new("B","B","B","B","B","B")
+# dice3 = Dice.new("B","B","B","B","B","B")
+# dice4 = Dice.new("B","B","B","B","B","B")
+# dice5 = Dice.new("B","B","B","B","B","B")
+# dice6 = Dice.new("B","B","B","B","B","B")
+# dice7 = Dice.new("B","B","B","B","B","B")
+# dice8 = Dice.new("B","B","B","B","B","B")
+# dice9 = Dice.new("B","B","B","B","B","B")
+# dice10 = Dice.new("B","B","B","B","B","B")
+# dice11 = Dice.new("B","B","B","B","B","B")
+# dice12 = Dice.new("B","B","B","B","B","B")
+# dice13 = Dice.new("B","B","B","B","B","B")
+# dice14 = Dice.new("B","B","B","B","B","B")
+# dice15 = Dice.new("B","B","B","B","B","B")
+# dice16 = Dice.new("B","B","B","B","B","B")
 
 class BoggleBoard
+
+  dice1 = Dice.new("A","A","E","E","G","N")
+  dice2 = Dice.new("E","L","R","T","T","Y")
+  dice3 = Dice.new("A","O","O","T","T","W")
+  dice4 = Dice.new("A","B","B","J","O","O")
+  dice5 = Dice.new("E","H","R","T","V","W")
+  dice6 = Dice.new("C","I","M","O","T","U")
+  dice7 = Dice.new("D","I","S","T","T","Y")
+  dice8 = Dice.new("E","I","O","S","S","T")
+  dice9 = Dice.new("D","E","L","R","V","Y")
+  dice10 = Dice.new("A","C","H","O","P","S")
+  dice11 = Dice.new("H","I","M","N","Qu","U")
+  dice12 = Dice.new("E","E","I","N","S","U")
+  dice13 = Dice.new("E","E","G","H","N","W")
+  dice14 = Dice.new("A","F","F","K","P","S")
+  dice15 = Dice.new("H","L","N","N","R","Z")
+  dice16 = Dice.new("D","E","I","L","R","X")
+
   def initialize
     @spaces = Array.new(16, "_")
     @alphabet = ("A".."Z").to_a
-    @dice = Dice
-    @rangeDice = (1..6)
   end
 
   def shake!
-    output_string = String.new
-    letters = @spaces
-    letters.map! { |x| @alphabet.sample}
-
-    4.times do
-      output_string << letters.shift(4).join('') +"\n"
+    @alldice = []
+    Dice.all.each do |i|
+      push = i.randomSide
+      @alldice << push
     end
 
-    output_string
+    @alldice
+
+    output_board = String.new
+    letters_random = @alldice.shuffle
+
+    4.times do
+      output_board << letters_random.shift(4).join(' ') +"\n"
+    end
+
+    output_board
+
   end
 
   def to_s
@@ -74,17 +99,4 @@ end
 
 board = BoggleBoard.new
 
-@alldice = []
-Dice.all.each do |i|
-  push = i.randomSide
-  @alldice << push
-end
-
-output_board = String.new
-letters_random = @alldice.shuffle
-
-4.times do
-  output_board << letters_random.shift(4).join('') +"\n"
-end
-
-puts output_board
+puts board.shake!
