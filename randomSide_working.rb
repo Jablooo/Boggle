@@ -21,23 +21,7 @@ class Dice
   end
 end
 
-# Shuffle Test
-# dice1 = Dice.new("A","A","A","A","A","A")
-# dice2 = Dice.new("B","B","B","B","B","B")
-# dice3 = Dice.new("B","B","B","B","B","B")
-# dice4 = Dice.new("B","B","B","B","B","B")
-# dice5 = Dice.new("B","B","B","B","B","B")
-# dice6 = Dice.new("B","B","B","B","B","B")
-# dice7 = Dice.new("B","B","B","B","B","B")
-# dice8 = Dice.new("B","B","B","B","B","B")
-# dice9 = Dice.new("B","B","B","B","B","B")
-# dice10 = Dice.new("B","B","B","B","B","B")
-# dice11 = Dice.new("B","B","B","B","B","B")
-# dice12 = Dice.new("B","B","B","B","B","B")
-# dice13 = Dice.new("B","B","B","B","B","B")
-# dice14 = Dice.new("B","B","B","B","B","B")
-# dice15 = Dice.new("B","B","B","B","B","B")
-# dice16 = Dice.new("B","B","B","B","B","B")
+
 
 class BoggleBoard
 
@@ -51,7 +35,7 @@ class BoggleBoard
   dice8 = Dice.new("E","I","O","S","S","T")
   dice9 = Dice.new("D","E","L","R","V","Y")
   dice10 = Dice.new("A","C","H","O","P","S")
-  dice11 = Dice.new("H","I","M","N","Qu","U")
+  dice11 = Dice.new("H","I","M","N","Q","U")
   dice12 = Dice.new("E","E","I","N","S","U")
   dice13 = Dice.new("E","E","G","H","N","W")
   dice14 = Dice.new("A","F","F","K","P","S")
@@ -75,12 +59,15 @@ class BoggleBoard
     output_board = String.new
     letters_random = @alldice.shuffle
 
+    # output_board << letters_random.join('')
+    # output_board.gsub("Q", "Qu")
+
+    letters_random.map! { |el| el == "Q" ? "Qu" : el + " " }
     4.times do
       output_board << letters_random.shift(4).join(' ') +"\n"
     end
 
     output_board
-
   end
 
   def to_s
@@ -100,3 +87,41 @@ end
 board = BoggleBoard.new
 
 puts board.shake!
+
+
+
+# Shuffle Test1
+# dice1 = Dice.new("A","A","A","A","A","A")
+# dice2 = Dice.new("B","B","B","B","B","B")
+# dice3 = Dice.new("B","B","B","B","B","B")
+# dice4 = Dice.new("B","B","B","B","B","B")
+# dice5 = Dice.new("B","B","B","B","B","B")
+# dice6 = Dice.new("B","B","B","B","B","B")
+# dice7 = Dice.new("B","B","B","B","B","B")
+# dice8 = Dice.new("B","B","B","B","B","B")
+# dice9 = Dice.new("B","B","B","B","B","B")
+# dice10 = Dice.new("B","B","B","B","B","B")
+# dice11 = Dice.new("B","B","B","B","B","B")
+# dice12 = Dice.new("B","B","B","B","B","B")
+# dice13 = Dice.new("B","B","B","B","B","B")
+# dice14 = Dice.new("B","B","B","B","B","B")
+# dice15 = Dice.new("B","B","B","B","B","B")
+# dice16 = Dice.new("B","B","B","B","B","B")
+
+# Shuffle Test2
+# dice1 = Dice.new("A","A","A","A","A","A")
+# dice2 = Dice.new("Q","Q","Q","Q","Q","Q")
+# dice3 = Dice.new("Q","Q","Q","Q","Q","Q")
+# dice4 = Dice.new("Q","Q","Q","Q","Q","Q")
+# dice5 = Dice.new("Q","Q","Q","Q","Q","Q")
+# dice6 = Dice.new("Q","Q","Q","Q","Q","Q")
+# dice7 = Dice.new("Q","Q","Q","Q","Q","Q")
+# dice8 = Dice.new("Q","Q","Q","Q","Q","Q")
+# dice9 = Dice.new("Q","Q","Q","Q","Q","Q")
+# dice10 = Dice.new("Q","B","B","B","B","B")
+# dice11 = Dice.new("B","B","B","B","B","B")
+# dice12 = Dice.new("B","B","B","B","B","B")
+# dice13 = Dice.new("B","B","B","B","B","B")
+# dice14 = Dice.new("B","B","B","B","B","B")
+# dice15 = Dice.new("B","B","B","B","B","B")
+# dice16 = Dice.new("B","B","B","B","B","B")

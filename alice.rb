@@ -24,7 +24,7 @@ class BoggleBoard
 
 
     4.times do
-      output_string2 << letter_array.shift(4).join('') +"\n"
+      output_string2 << letter_array.shift(4).ljust(3).join('') +"\n"
     end
 
     output_string2
@@ -34,6 +34,4 @@ end
 
 board = BoggleBoard.new
 
-puts board.shake!
-puts board.shake!
 puts board.shake!
